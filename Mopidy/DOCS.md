@@ -36,7 +36,7 @@ Hosts a [Mopidy Server](https://mopidy.com/) for music-playback, it includes a b
 - [Report a bug or request a feature here][issue]
 
 [addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=Mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons
+[addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons
 [issue]: https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues
 [discussions]: https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions
 [ha-integration]: https://github.com/bushvin/hass-integrations
