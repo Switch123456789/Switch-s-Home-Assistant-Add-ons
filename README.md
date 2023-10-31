@@ -1,6 +1,6 @@
-# My Home Assistant Community Add-ons
+# Switch's Home Assistant Add-ons
 
-This place is where I publish my Home Assistant addons.
+In this repository I will publish all my add-ons.
 
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
