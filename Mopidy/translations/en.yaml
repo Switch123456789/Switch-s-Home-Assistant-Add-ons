@@ -1,0 +1,62 @@
+configuration:
+  #MOPIDY
+  mopidy_restore:
+    name: "MOPIDY: Restore State after restart"
+  mopidy_results_local:
+    name: "Maximum search-results for local music (Default: 1000)"
+  mopidy_results_online:
+    name: "Maximum search-results for each online-provider (Default: 10)" 
+  mopidy_buffer:
+    name: "Audio-buffer size in ms(Default: 1000)"
+  #OUTPUT
+  output_local:
+    name: "OUTPUT: LOCAL"
+  output_snapcast:
+    name: "OUTPUT: SNAPCAST (For multi-room/device playback)"
+  output_snapcast_buffer:
+    name: "Audio-buffer size in ms (Default: 1000)"
+  output_icecast:
+    name: "OUTPUT: ICECAST (for online-playback)"
+  output_icecast_clients:
+    name: "Maximum number of clients (Default: 8)"
+  output_icecast_queue:
+    name: "Maximum queue size in bytes (Default: 524288)"
+  #SOURCE LOCAL
+  source_local:
+    name: "SOURCE: LOCAL"
+  source_local_dirs:
+    name: "Directories for Filebrowser (Default: /media /share)"
+  source_local_dir_music:
+    name: "Directory musicfiles (Default: /media)"
+  source_local_dir_playlists:
+    name: "Directory flaylists (Default: /media)"
+  source_local_include:
+    name: "File-extensions include (Default: .aac .aiff .alac .flac .m4a .mp3 .oga .ogg .opus .wma .wav)"
+  source_local_exclude:
+    name: "File-extensions exclude (Default: )"
+  source_local_timeout:
+    name: "Timeout for metadata-scan and database-connection in ms (Default: 10)"
+  #SOURCE ONLINE
+  source_youtube:
+    name: "SOURCE: YOUTUBE"
+  source_youtube_autoplay:
+    name: "Add related songs automatically (Default: false)"
+  source_youtube_channel:
+    name: "Youtube channel-id to add playlists from. (Default: )"
+  source_soundcloud:
+    name: "SOURCE: SOUNDCLOUD"
+  source_soundcloud_token:
+    name: "Access Token (required)"
+  source_mixcloud:
+    name: "SOURCE: MIXCLOUD"
+  source_mixcloud_users:
+    name: "Browsable Users (Default: )"
+  source_mixcloud_tags:
+    name: "Browsable Tags (Default: )"
+  #INTERFACE
+  interface_iris:
+    name: "INTERFACE: IRIS"
+  interface_yap:
+    name: "INTERFACE: YAP"
+  interface_yap_votes:
+    name: "Amount of votes needed to skip, delete or push tracks to the top (Default: 1)"

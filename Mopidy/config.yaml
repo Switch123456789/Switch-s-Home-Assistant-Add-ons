@@ -1,0 +1,75 @@
+slug: "mopidy"
+name: "Mopidy+"
+description: "Mopidy + extensions + Snapcast + Icecast"
+version: "0.6.2"
+init: false
+audio: true
+
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+
+map:
+  - media:rw
+  - share:rw
+
+startup: services
+
+ports:
+  6680/tcp: 6680
+  1780/tcp: 1780
+  1705/tcp: 1705
+  1704/tcp: 1704
+  8000/tcp: 8000
+
+options:
+  #OUTPUT
+  output_local: false
+  output_snapcast: false
+  output_icecast: false
+  #SOURCE LOCAL
+  source_local: false
+  source_youtube: false
+  source_soundcloud: false
+  source_mixcloud: false
+  #MISC
+  interface_iris: false
+  interface_yap: false
+
+schema:
+  #MOPIDY
+  mopidy_restore: bool?
+  mopidy_results_local: int?
+  mopidy_results_online: int?
+  mopidy_buffer: int?
+  #OUTPUT
+  output_local: bool
+  output_snapcast: bool
+  output_snapcast_buffer: int?
+  output_icecast: bool
+  output_icecast_clients: int?
+  output_icecast_queue: int?
+  #SOURCE LOCAL
+  source_local: bool
+  source_local_dirs: str?
+  source_local_dir_music: str?
+  source_local_dir_playlists: str?
+  source_local_include: str?
+  source_local_exclude: str?
+  source_local_timeout: int?
+  #SOURCE ONLINE
+  source_youtube: bool
+  source_youtube_autoplay: str?
+  source_youtube_channel: str?
+  source_soundcloud: bool
+  source_soundcloud_token: password?
+  source_mixcloud: bool
+  source_mixcloud_users: str?
+  source_mixcloud_tags: str?
+  #INTERFACE
+  interface_iris: bool
+  interface_yap: bool
+  interface_yap_votes: int?
