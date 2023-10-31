@@ -16,6 +16,7 @@ Hosts a [Mopidy Server](https://mopidy.com/) for music-playback, it includes a b
 ## Installation
 
 - Click the button below to open the add-on in your Home Assistant instance.
+
   [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
 
 ## Usage
