@@ -12,7 +12,7 @@
 
 
 # PREPARATIONS ##################################################################
-    bashio::log.info "PREPARING MOPIDY ..."
+    bashio::log.info "CHECKING CONFIGURATION ..."
     #OUTPUTS
         cv output_local false
         cv output_snapcast false
@@ -29,10 +29,9 @@
         fi
     #FILESYSTEM
         if [ ! -d "/data/mopidy" ]; then
-            cp -r "/etc/mopidy.default" "/data/mopidy"
             bashio::log.notice "NO CONFIGURATION FOUND, USING DEFAULTS!"
+            cp -p -r "/etc/mopidy.default" "/data/mopidy"
         fi
-    #PERSISTENT DATA
         ln -s "/data/mopidy" "/etc"
 #################################################################################
 
@@ -115,33 +114,36 @@
 
 
 # MOPIDY ########################################################################
-    bashio::log.info "STARTING MOPIDY ..."
+    bashio::log.info "PREPARING MOPIDY ..."
     #CONFIGURATION
         {
         #MOPIDY
-                cv teststring "Tracks local:directory?type=track"
-                cv mopidy_restore false
-                cv mopidy_buffer 1000
-                cv mopidy_results_online 10
-                cv source_local false
-                cv source_youtube false
-                cv source_mixcloud false
-                cv interface_iris false
-                cv interface_yap false
-                echo "[core]"
-                echo "cache_dir = /etc/mopidy/cache"
-                echo "config_dir = /etc/mopidy/config"
-                echo "data_dir = /etc/mopidy/data"
-                echo "restore_state = ${mopidy_restore}"
-                echo "[http]"
-                echo "hostname = ::"
-                echo "#port = 8099"
-                echo "zeroconf = Home Assistant Mopidy Addon"
-                echo "[stream]"
-                echo "timeout = 10000"
-                echo "[audio]"
-                echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t ${mopidy_output}"
-                echo "buffer_time = ${mopidy_buffer}"
+            cv teststring "Tracks local:directory?type=track"
+            cv mopidy_restore false
+            cv mopidy_buffer 1000
+            cv mopidy_results_online 10
+            cv source_local false
+            cv source_youtube false
+            cv source_mixcloud false
+            cv interface_iris false
+            cv interface_yap false
+            echo "[core]"
+            echo "cache_dir = /etc/mopidy/cache"
+            echo "config_dir = /etc/mopidy/config"
+            echo "data_dir = /etc/mopidy/data"
+            echo "restore_state = ${mopidy_restore}"
+            echo "[http]"
+            echo "hostname = ::"
+            echo "#port = 8099"
+            echo "zeroconf = Home Assistant Mopidy Addon"
+            echo "allowed_origins = 0.0.0.0"
+            echo "[stream]"
+            echo "timeout = 10000"
+            echo "[audio]"
+            echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t ${mopidy_output}"
+            echo "buffer_time = ${mopidy_buffer}"
+            echo "[proxy]"
+            echo "scheme = https"
         #LOCAL
             if [ ${source_local} = true ]; then
                 cv mopidy_results_local 1000
@@ -244,6 +246,10 @@
             echo "title = Home Assistant Mopidy Addon"
         } > "/etc/mopidy/mopidy.conf"
     #START
-        if [ ${source_local} = true ]; then bashio::log.info "SCANNING LOCAL MEDIA ..."; mopidy -q --config "/etc/mopidy/mopidy.conf" local scan; fi
+        if [ ${source_local} = true ]; then
+            bashio::log.info "SCANNING LOCAL MEDIA ..."
+            mopidy -q --config "/etc/mopidy/mopidy.conf" local scan
+        fi
+        bashio::log.info "STARTING MOPIDY ..."
         mopidy -q --config "/etc/mopidy/mopidy.conf"
 #################################################################################

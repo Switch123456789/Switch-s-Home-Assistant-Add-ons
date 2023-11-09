@@ -1,5 +1,5 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-python
+FROM ${BUILD_FROM}
 
 #UPDATE AND INSTALL PACKAGES
 RUN apk update && apk upgrade --no-cache && apk add --no-cache \
@@ -10,42 +10,46 @@ RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     gst-plugins-ugly \
     icecast \
     mailcap \
-    mopidy \
     snapcast \
     sudo \
     pwgen \
     py3-pip
-    #yt-dlp
+
+#INSTALL EDGE PACKAGES
+RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
+    mopidy \
+    yt-dlp
+
 RUN pip3 install --no-cache-dir --upgrade \
     mopidy-iris \
     mopidy-local \
-    #mopidy-mixcloud \
+#   mopidy-mixcloud \
     mopidy-mobile \
     mopidy-party \
     mopidy-soundcloud \
     mopidy-yap \
-    mopidy-youtube \
+#   mopidy-youtube \
     ytmusicapi
 
-#WORKAROUND: YT-DLP (non-edge-version lacks new mixcloud API-URL)
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> "/etc/apk/repositories" && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> "/etc/apk/repositories" && \
-    apk update && apk add --no-cache yt-dlp
+#WORKAROUND: MOPIDY-MIXCLOUD (Fork: Switch123456789.
+RUN wget "https://github.com/Switch123456789/unusualcomputers/archive/refs/heads/master.zip" -P "/tmp" && \
+    unzip "/tmp/master.zip" "unusualcomputers-master/code/mopidy/mopidymixcloud/*" -d "/tmp" && \
+    cd "/tmp/unusualcomputers-master/code/mopidy/mopidymixcloud" && \
+    pip3 install .
 
-#WORKAROUND: MOPIDY-MIXCLOUD (pip-release is broken, this will install a modified version by nbx3 (github) and me.
-COPY files/mopidy-mixcloud /tmp/mopidy-mixcloud
-RUN chmod 755 -R /tmp/mopidy-mixcloud && \
-    cd /tmp/mopidy-mixcloud && \
-    pip3 install . && \
-    rm -R /tmp/mopidy-mixcloud
+#WORKAROUND: MOPIDY-YOUTUBE (Branch: develop)
+RUN wget "https://github.com/natumbri/mopidy-youtube/archive/refs/heads/develop.zip" -P "/tmp" && \
+    unzip "/tmp/develop.zip" -d "/tmp" && \
+    cd "/tmp/mopidy-youtube-develop" && \
+    pip3 install .
 
-#PREPARE PACKAGES
+#PREPARE FILES
 RUN echo "mopidy ALL=NOPASSWD: /usr/lib/python3.11/site-packages/mopidy_iris/system.sh" >> "/etc/sudoers" && \
     sed -i 's/level = INFO/level = WARNING/' /etc/mopidy/logging.conf && \
     rm "/etc/snapserver.conf" "/etc/icecast.xml" "/etc/mopidy/mopidy.conf" && \
     mv "/etc/mopidy" "/etc/mopidy.default"
 
 #PREPARE SCRIPT
-COPY files/run.sh /
-RUN chmod a+x /run.sh
+COPY run.sh /
+RUN chmod a+x /run.sh && rm -R /tmp/*
 CMD [ "/run.sh" ]

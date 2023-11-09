@@ -1,0 +1,4 @@
+configuration:
+  on_startup:
+    name: Startup action
+    description: If you locked yourself out from the web interface, select "Reset configuration" to restore all permissions. Run the addon once and wait until it's stopped, then set it back to "Start CUPS".
