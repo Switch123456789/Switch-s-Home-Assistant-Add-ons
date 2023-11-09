@@ -44,7 +44,7 @@
             cv output_icecast_clients 8
             cv output_icecast_queue 524288
             output_icecast_password=$(pwgen 32 1)
-            mopidy_output+="t. ! queue ! lamemp3enc target=bitrate cbr=true bitrate=320 encoding-engine-quality=high ! shout2send async=false mount=mopidy ip=127.0.0.1 port=8000 password=${output_icecast_password}"
+            mopidy_output+=" t. ! queue ! lamemp3enc target=bitrate cbr=true bitrate=320 encoding-engine-quality=high ! shout2send async=false mount=mopidy ip=127.0.0.1 port=8000 password=${output_icecast_password}"
             echo "<icecast>"
             echo "    <location>mopidy</location>"
             echo "    <admin>mopidy</admin>"
@@ -89,7 +89,7 @@
     #CONFIGURATION
         { 
             cv output_snapcast_buffer 1000
-            mopidy_output+="t. ! queue ! filesink location=/tmp/snapfifo"
+            mopidy_output+=" t. ! queue ! filesink location=/tmp/snapfifo"
             echo "[server]"
             echo "datadir = /etc/mopidy/snapserver"
             echo "[http]"
@@ -107,8 +107,9 @@
             echo "filter = *:fatal"
         } > "/etc/snapserver.conf"
     #START
-        snapserver -c "/etc/snapserver.conf" & if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h 127.0.0.1 & fi
-    elif [ "${output_local}" = true ]; then mopidy_output+="t. ! queue ! autoaudiosink"; fi
+        snapserver -c "/etc/snapserver.conf" &
+        if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h 127.0.0.1 & fi
+    elif [ "${output_local}" = true ]; then mopidy_output+=" t. ! queue ! autoaudiosink"; fi
 #################################################################################
 
 
@@ -140,7 +141,7 @@
             echo "[stream]"
             echo "timeout = 10000"
             echo "[audio]"
-            echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t ${mopidy_output}"
+            echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t${mopidy_output}"
             echo "buffer_time = ${mopidy_buffer}"
             echo "[proxy]"
             echo "scheme = https"
