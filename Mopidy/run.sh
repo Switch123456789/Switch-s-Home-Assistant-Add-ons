@@ -100,7 +100,7 @@
             echo "bind_to_address = ::"
             echo "[stream]"
             echo "bind_to_address = ::"
-            echo "source = pipe:///tmp/snapfifo?name=default"
+            echo "source = pipe:///tmp/snapfifo?name=Mopidy"
             echo "buffer = ${output_snapcast_buffer}"
             echo "chunk_ms = 26"
             echo "[logging]"
