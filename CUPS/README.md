@@ -1,31 +1,24 @@
 # Home Assistant Community Add-on: CUPS
 
-Hosts a CUPS Server to enable printer sharing to the local network.
+Hosts a [CUPS](https://www.cups.org/) Server to enable printer sharing to the local network.
+
+![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
 **Features:**
 - Printer Announcement on the local network using zeroconf/avahi
 - Customizable cupsd.conf through CUPS-webinterface
-- Option to reset cupsd.conf to regain access without a full reset (in case of misconfigured permissions)
-- Small  footprint (Alpine-based)
-- Mutliarch
+- Option to reset cupsd.conf to regain access (in case of misconfiguration)
 
 **Restrictions:**
 - Lacks name-resolution-capabilities (mDNS), network printers have to be added manually
-- PAM-authentication is not availabe
 - Ingress doesn't work
-- Only tested with USB-printers
 - No additional preinstalled drivers (use PPD-files)
 
 ## Installation
 
-1. Click the Home Assistant My button below to open the add-on on your Home
-   Assistant instance.
+- Click the button below to open the add-on in your Home Assistant instance.
 
-   [![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
-
-1. Click the "Install" button to install the add-on.
-1. Start the "Example" add-on.
-1. Check the logs of the "Example" add-on to see it in action.
+  [![addon-badge]][addon]
 
 ## Usage
 
@@ -33,21 +26,17 @@ Open `https://[HOSTNAME]:631` to access the CUPS-webinterface, edit teh configur
 
 ## Support
 
-- none
+- [Discuss the addon here][discussions]
 
-## Authors & contributors
-
-The original author of this repository is [Switch][author].
-
-For a full list of all authors and contributors, check [the contributor's page][contributors].
-
-## License
-
-GPL Version 3
+- [Report a bug or request a feature here][issue]
 
 [addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [addon]: https://localhost:8123
-[author]: https://github.com/Switch123456789
-[contributors]: https://github.com/Switch123456789/REPO/graphs/contributors
+[discussions]: https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions
 [issue]: https://github.com/Switch123456789/REPO/issues
-[releases]: https://github.com/Switch123456789/REPO/releases
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
+[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
