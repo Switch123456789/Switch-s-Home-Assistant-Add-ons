@@ -25,7 +25,6 @@ RUN pip3 install --no-cache-dir --upgrade \
     mopidy-local \
 #   mopidy-mixcloud \
     mopidy-mobile \
-    mopidy-party \
     mopidy-soundcloud \
     mopidy-yap \
 #   mopidy-youtube \
