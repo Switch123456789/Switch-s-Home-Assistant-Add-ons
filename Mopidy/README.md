@@ -1,17 +1,25 @@
 # Home Assistant Community Add-on: Mopidy+
 
-Hosts a [Mopidy Server](https://mopidy.com/) for music-playback, it includes a bunch of usefull extensions, Snapcast & Icecast.
+Hosts a [Mopidy Server](https://mopidy.com/) for music-playback, it includes a bunch of usefull extensions, Snapcast & Icecast. Extensions can be configured in the add-on configuration.
 
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
-**Features:**
-- Output types: Local audio-adapter, snapcast & Icecast.
-- Source types: Local music & playlists, mediastreams, YouTube, Soundcloud & Mixcloud
-- Web-interfaces: Iris & Yap
-- Configure mopidys extensions within Home Assistant
+**Playback-options:**
+- [Local audio-device](https://github.com/home-assistant/plugin-audio)
+- [Snapcast](https://github.com/badaix/snapcast)
+- [Icecast](https://github.com/xiph/Icecast-Server)
 
-**Restrictions:**
-- Ingress doesn't work
+**Backend-extensions:**
+- [Mopidy](https://github.com/mopidy/mopidy) (Files, Playlists & Streams)
+- [Mopidy-Local](https://github.com/mopidy/mopidy-local)
+- [Mopidy-Mixcloud](https://github.com/unusualcomputers/unusualcomputers/tree/master/code/mopidy/mopidymixcloud)
+- [Mopidy-Soundcloud](https://github.com/mopidy/mopidy-soundcloud)
+- [Mopidy-Youtube](https://github.com/natumbri/mopidy-youtube)
+
+**Interface-extensions:**
+- [Mopidy-Iris](https://github.com/jaedb/iris)
+- [Mopidy-Mobile](https://github.com/tkem/mopidy-mobile)
+- [Mopidy-Yap](https://github.com/dyj216/mopidy-yap)
 
 ## Installation
 
