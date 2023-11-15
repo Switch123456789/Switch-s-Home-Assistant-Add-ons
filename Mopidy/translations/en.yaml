@@ -7,14 +7,16 @@ configuration:
   mopidy_results_online:
     name: "Maximum search-results for each online-provider (Default: 10)" 
   mopidy_buffer:
-    name: "Audio-buffer size in ms(Default: 1000)"
+    name: "Audio-buffer size in s (Default: 1)"
   #OUTPUT
   output_local:
     name: "OUTPUT: LOCAL"
   output_snapcast:
     name: "OUTPUT: SNAPCAST (For multi-room/device playback)"
   output_snapcast_buffer:
-    name: "Audio-buffer size in ms (Default: 1000)"
+    name: "Audio-buffer size in s (Default: 1)"
+  output_snapcast_sources:
+    name: "Add additional sources (Default: )"
   output_icecast:
     name: "OUTPUT: ICECAST (for online-playback)"
   output_icecast_clients:
@@ -35,7 +37,7 @@ configuration:
   source_local_exclude:
     name: "File-extensions exclude (Default: )"
   source_local_timeout:
-    name: "Timeout for metadata-scan and database-connection in ms (Default: 10)"
+    name: "Timeout for metadata-scan and database-connection in s (Default: 10)"
   #SOURCE ONLINE
   source_youtube:
     name: "SOURCE: YOUTUBE"
@@ -60,3 +62,5 @@ configuration:
     name: "INTERFACE: YAP"
   interface_yap_votes:
     name: "Amount of votes needed to skip, delete or push tracks to the top (Default: 1)"
+  interface_mobile:
+    name: "INTERFACE: MOBILE"

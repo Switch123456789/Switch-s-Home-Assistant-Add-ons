@@ -1,9 +1,11 @@
 slug: "mopidy"
 name: "Mopidy+"
 description: "Mopidy + extensions + Snapcast + Icecast"
-version: "0.7.1"
+version: "0.8.0"
 init: false
 audio: true
+tmpfs: true
+realtime: true
 
 arch:
   - aarch64
@@ -38,6 +40,7 @@ options:
   #MISC
   interface_iris: false
   interface_yap: false
+  interface_mobile: false
 
 schema:
   #MOPIDY
@@ -49,6 +52,7 @@ schema:
   output_local: bool
   output_snapcast: bool
   output_snapcast_buffer: int?
+  output_snapcast_sources: str?
   output_icecast: bool
   output_icecast_clients: int?
   output_icecast_queue: int?
@@ -73,3 +77,4 @@ schema:
   interface_iris: bool
   interface_yap: bool
   interface_yap_votes: int?
+  interface_mobile: bool

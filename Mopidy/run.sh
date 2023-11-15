@@ -88,7 +88,8 @@
     if [ "${output_snapcast}" = true ]; then bashio::log.info "STARTING SNAPCAST ..."
     #CONFIGURATION
         { 
-            cv output_snapcast_buffer 1000
+            cv output_snapcast_sources ""
+            cv output_snapcast_buffer 1
             mopidy_output+=" t. ! queue ! filesink location=/tmp/snapfifo"
             echo "[server]"
             echo "datadir = /etc/mopidy/snapserver"
@@ -101,7 +102,8 @@
             echo "[stream]"
             echo "bind_to_address = ::"
             echo "source = pipe:///tmp/snapfifo?name=Mopidy"
-            echo "buffer = ${output_snapcast_buffer}"
+            for i in ${output_snapcast_sources[@]}; do echo "source = $i"; done
+            echo "buffer = $((output_snapcast_buffer * 1000))"
             echo "chunk_ms = 26"
             echo "[logging]"
             echo "filter = *:fatal"
@@ -119,15 +121,15 @@
     #CONFIGURATION
         {
         #MOPIDY
-            cv teststring "Tracks local:directory?type=track"
             cv mopidy_restore false
-            cv mopidy_buffer 1000
+            cv mopidy_buffer 1
             cv mopidy_results_online 10
             cv source_local false
             cv source_youtube false
             cv source_mixcloud false
             cv interface_iris false
             cv interface_yap false
+            cv interface_mobile false
             echo "[core]"
             echo "cache_dir = /etc/mopidy/cache"
             echo "config_dir = /etc/mopidy/config"
@@ -142,7 +144,7 @@
             echo "timeout = 10000"
             echo "[audio]"
             echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t${mopidy_output}"
-            echo "buffer_time = ${mopidy_buffer}"
+            echo "buffer_time = $((mopidy_buffer * 1000))"
             echo "[proxy]"
             echo "scheme = https"
         #LOCAL
@@ -220,7 +222,7 @@
                 echo "[mixcloud]"
                 echo "enabled = false"
             fi
-        #INTERFACE: IRIS
+        #INTERFACE IRIS
             if [ ${interface_iris} = true ]; then
                 echo "[iris]"
                 #echo verify_certificates =
@@ -229,7 +231,7 @@
                 echo "[iris]"
                 echo "enabled = false"
             fi
-        #INTERFACE: YAP
+        #INTERFACE YAP
             if [ ${interface_yap} = true ]; then
                 cv interface_yap_votes 1
                 echo "[yap]"
@@ -241,10 +243,14 @@
                 echo "[yap]"
                 echo "enabled = false"
             fi
-        #DEBUG
-            echo "[mobile]"
-            echo "enabled = true"
-            echo "title = Home Assistant Mopidy Addon"
+        #INTERFACE MOBILE
+            if [ ${interface_mobile} = true ]; then
+                echo "[mobile]"
+                echo "title = Home Assistant Addon: Mopidy+"
+            else
+                echo "[mobile]"
+                echo "enabled = false"
+            fi
         } > "/etc/mopidy/mopidy.conf"
     #START
         if [ ${source_local} = true ]; then
