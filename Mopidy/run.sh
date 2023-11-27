@@ -14,11 +14,16 @@
 # PREPARATIONS ##################################################################
     bashio::log.info "CHECKING CONFIGURATION ..."
     #OUTPUTS
+        cv output_fifo false
         cv output_local false
         cv output_snapcast false
         cv output_icecast false
-        if [ ${output_local} = false ] && [ ${output_snapcast} = false ] && [ ${output_icecast} = false ]; then
-            bashio::log.error "AT LEAST ONE AUDIO-OUTPUT REQUIRED! (LOCAL, SNAPCAST AND ICECAST)"; exit 1
+        if [ ${output_fifo} = false ] && [ ${output_local} = false ] && [ ${output_snapcast} = false ] && [ ${output_icecast} = false ]; then
+            bashio::log.error "AT LEAST ONE AUDIO-OUTPUT REQUIRED! (FIFO, LOCAL, SNAPCAST OR ICECAST)"
+            exit 1
+        fi
+        if [ ${output_fifo} = true ]; then
+            mopidy_output+=" t. ! queue ! filesink location=/share/mopidy"
         fi
     #SOUNDCLOUD
         cv source_soundcloud false
@@ -48,7 +53,7 @@
             echo "<icecast>"
             echo "    <location>mopidy</location>"
             echo "    <admin>mopidy</admin>"
-            echo "    <hostname>127.0.0.1</hostname>"
+            echo "    <hostname>172.30.32.2</hostname>"
             echo "    <fileserve>0</fileserve>"
             echo "    <limits>"
             echo "        <clients>${output_icecast_clients}</clients>"
@@ -90,7 +95,7 @@
         { 
             cv output_snapcast_sources ""
             cv output_snapcast_buffer 1
-            mopidy_output+=" t. ! queue ! filesink location=/tmp/snapfifo"
+            mopidy_output+=" t. ! queue ! filesink location=/tmp/mopidy"
             echo "[server]"
             echo "datadir = /etc/mopidy/snapserver"
             echo "[http]"
@@ -101,7 +106,7 @@
             echo "bind_to_address = ::"
             echo "[stream]"
             echo "bind_to_address = ::"
-            echo "source = pipe:///tmp/snapfifo?name=Mopidy"
+            echo "source = pipe:///tmp/mopidy?name=Mopidy"
             for i in ${output_snapcast_sources[@]}; do echo "source = $i"; done
             echo "buffer = $((output_snapcast_buffer * 1000))"
             echo "chunk_ms = 26"
@@ -110,7 +115,7 @@
         } > "/etc/snapserver.conf"
     #START
         snapserver -c "/etc/snapserver.conf" &
-        if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h 127.0.0.1 & fi
+        if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h "172.30.32.2" --hostID "SERVER" & fi
     elif [ "${output_local}" = true ]; then mopidy_output+=" t. ! queue ! autoaudiosink"; fi
 #################################################################################
 

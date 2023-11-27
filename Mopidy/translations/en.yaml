@@ -11,6 +11,8 @@ configuration:
   #OUTPUT
   output_local:
     name: "OUTPUT: LOCAL"
+  output_fifo:
+    name: "OUTPUT: FIFO (To process audio in another add-on using /share/mopidy)"
   output_snapcast:
     name: "OUTPUT: SNAPCAST (For multi-room/device playback)"
   output_snapcast_buffer:
@@ -58,9 +60,15 @@ configuration:
   #INTERFACE
   interface_iris:
     name: "INTERFACE: IRIS"
+  interface_mobile:
+    name: "INTERFACE: MOBILE"
   interface_yap:
     name: "INTERFACE: YAP"
   interface_yap_votes:
     name: "Amount of votes needed to skip, delete or push tracks to the top (Default: 1)"
-  interface_mobile:
-    name: "INTERFACE: MOBILE"
+network:
+  1780/tcp: "Snapcast (http)"
+  1704/tcp: "Snapcast (Stream)"
+  1705/tcp: "Snapcast (Control)"
+  6680/tcp: "Mopidy"
+  8000/tcp: "Icecast"

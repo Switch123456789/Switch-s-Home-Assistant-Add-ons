@@ -1,10 +1,9 @@
 slug: "mopidy"
 name: "Mopidy+"
 description: "Mopidy + extensions + Snapcast + Icecast"
-version: "0.8.0"
+version: "0.8.5"
 init: false
 audio: true
-tmpfs: true
 realtime: true
 
 arch:
@@ -30,6 +29,7 @@ ports:
 options:
   #OUTPUT
   output_local: false
+  output_fifo: false
   output_snapcast: false
   output_icecast: false
   #SOURCE LOCAL
@@ -50,6 +50,7 @@ schema:
   mopidy_buffer: int?
   #OUTPUT
   output_local: bool
+  output_fifo: bool?
   output_snapcast: bool
   output_snapcast_buffer: int?
   output_snapcast_sources: str?
@@ -75,6 +76,6 @@ schema:
   source_mixcloud_tags: str?
   #INTERFACE
   interface_iris: bool
+  interface_mobile: bool
   interface_yap: bool
   interface_yap_votes: int?
-  interface_mobile: bool
