@@ -1,6 +1,6 @@
 # Home Assistant Community Add-on: Mopidy+
 
-Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunch of usefull extensions, Snapcast & Icecast. Extensions can be configured in the add-on configuration.
+Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunch of useful extensions, Snapcast & Icecast. Extensions can be configured in the add-on configuration.
 
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
@@ -26,7 +26,7 @@ Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunc
 
 - Click the button below to open the add-on in your Home Assistant instance.
 
-  [![addon-badge]](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
+  [![badge]](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
 
 ## Usage
 
@@ -44,7 +44,7 @@ Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunc
 
 ## Support
 
-- **[Discuss the addon here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions)**
+- **[Discuss the add-on here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions)**
 
 - **[Report a bug or request a feature here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues)**
 
@@ -54,7 +54,7 @@ Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunc
 [Snapcast-app]: https://play.google.com/store/apps/details?id=de.badaix.snapcast
 [Icecast]: https://icecast.org/
 
-[addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
