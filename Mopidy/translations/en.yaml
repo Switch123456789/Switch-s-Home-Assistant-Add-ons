@@ -7,7 +7,7 @@ configuration:
   mopidy_results_online:
     name: "Maximum search-results for each online-provider (Default: 10)" 
   mopidy_buffer:
-    name: "Audio-buffer size in s (Default: 1)"
+    name: "Audio-buffer size in ms (Default: 1000)"
   #OUTPUT
   output_local:
     name: "OUTPUT: LOCAL"
@@ -16,7 +16,7 @@ configuration:
   output_snapcast:
     name: "OUTPUT: SNAPCAST (For multi-room/device playback)"
   output_snapcast_buffer:
-    name: "Audio-buffer size in s (Default: 1)"
+    name: "Audio-buffer size in ms (Default: 1000)"
   output_snapcast_sources:
     name: "Add additional sources (Default: )"
   output_icecast:

@@ -94,7 +94,7 @@
     #CONFIGURATION
         { 
             cv output_snapcast_sources ""
-            cv output_snapcast_buffer 1
+            cv output_snapcast_buffer 1000
             mopidy_output+=" t. ! queue ! filesink location=/tmp/mopidy"
             echo "[server]"
             echo "datadir = /etc/mopidy/snapserver"
@@ -108,7 +108,7 @@
             echo "bind_to_address = ::"
             echo "source = pipe:///tmp/mopidy?name=Mopidy"
             for i in ${output_snapcast_sources[@]}; do echo "source = $i"; done
-            echo "buffer = $((output_snapcast_buffer * 1000))"
+            echo "buffer = ${output_snapcast_buffer}"
             echo "chunk_ms = 26"
             echo "[logging]"
             echo "filter = *:fatal"
@@ -127,7 +127,7 @@
         {
         #MOPIDY
             cv mopidy_restore false
-            cv mopidy_buffer 1
+            cv mopidy_buffer 1000
             cv mopidy_results_online 10
             cv source_local false
             cv source_youtube false
@@ -149,7 +149,7 @@
             echo "timeout = 10000"
             echo "[audio]"
             echo "output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! tee name=t${mopidy_output}"
-            echo "buffer_time = $((mopidy_buffer * 1000))"
+            echo "buffer_time = ${mopidy_buffer}"
             echo "[proxy]"
             echo "scheme = https"
         #LOCAL
