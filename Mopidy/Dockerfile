@@ -10,37 +10,37 @@ RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     gst-plugins-ugly \
     icecast \
     mailcap \
+    mopidy \
     snapcast \
     sudo \
     pwgen \
-    py3-pip
-
-#INSTALL EDGE PACKAGES
-RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
-    mopidy \
+    py3-pip \
     yt-dlp
 
-RUN pip3 install --no-cache-dir --upgrade \
+#INSTALL EDGE PACKAGES
+#RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
+
+RUN pip3 install --break-system-packages --no-cache-dir --upgrade \
     mopidy-iris \
     mopidy-local \
-#   mopidy-mixcloud \
     mopidy-mobile \
     mopidy-soundcloud \
     mopidy-yap \
-#   mopidy-youtube \
     ytmusicapi
+#   mopidy-mixcloud
+#   mopidy-youtube
 
 #WORKAROUND: MOPIDY-MIXCLOUD (Fork: Switch123456789.
 RUN wget "https://github.com/Switch123456789/unusualcomputers/archive/refs/heads/master.zip" -P "/tmp" && \
     unzip "/tmp/master.zip" "unusualcomputers-master/code/mopidy/mopidymixcloud/*" -d "/tmp" && \
     cd "/tmp/unusualcomputers-master/code/mopidy/mopidymixcloud" && \
-    pip3 install .
+    pip3 install --break-system-packages .
 
 #WORKAROUND: MOPIDY-YOUTUBE (Branch: develop)
 RUN wget "https://github.com/natumbri/mopidy-youtube/archive/refs/heads/develop.zip" -P "/tmp" && \
     unzip "/tmp/develop.zip" -d "/tmp" && \
     cd "/tmp/mopidy-youtube-develop" && \
-    pip3 install .
+    pip3 install --break-system-packages .
 
 #PREPARE FILES
 RUN echo "mopidy ALL=NOPASSWD: /usr/lib/python3.11/site-packages/mopidy_iris/system.sh" >> "/etc/sudoers" && \

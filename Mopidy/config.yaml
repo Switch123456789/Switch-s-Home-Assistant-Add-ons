@@ -1,10 +1,11 @@
 slug: "mopidy"
 name: "Mopidy+"
 description: "Mopidy + extensions + Snapcast + Icecast"
-version: "0.8.5"
+version: "0.8.8"
 init: false
 audio: true
 realtime: true
+tmpfs: true
 
 arch:
   - aarch64
@@ -20,10 +21,10 @@ map:
 startup: services
 
 ports:
-  6680/tcp: 6680
   1780/tcp: 1780
   1705/tcp: 1705
   1704/tcp: 1704
+  6680/tcp: 6680
   8000/tcp: 8000
 
 options:
