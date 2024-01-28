@@ -1,5 +1,6 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base-python
 FROM ${BUILD_FROM}
+RUN echo "Version: 0.8.14"
 
 #UPDATE AND INSTALL PACKAGES
 RUN apk update && apk upgrade --no-cache && apk add --no-cache \
