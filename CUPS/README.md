@@ -33,7 +33,7 @@ Open `https://[HOSTNAME]:631` to access the CUPS-webinterface, edit teh configur
 [addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
 [addon]: https://localhost:8123
 [discussions]: https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions
-[issue]: https://github.com/Switch123456789/REPO/issues
+[issue]: https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
