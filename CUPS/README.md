@@ -1,35 +1,26 @@
 # Home Assistant Community Add-on: CUPS
+### Features
+- Hosts a [CUPS](https://www.cups.org/) Server
+- Enables printer sharing to the local network.
+- Announces printers on the local network over mDNS (zeroconf/avahi)
+- `cupsd.conf` is customizable through the CUPS-webinterface
+- `cupsd.conf` optionally can be restored to regain access (in case of misconfiguration)
 
-Hosts a [CUPS](https://www.cups.org/) Server to enable printer sharing to the local network.
-
-![aarch64: yes](https://img.shields.io/badge/aarch64-yes-green.svg)
-![amd64: yes](https://img.shields.io/badge/amd64-yes-green.svg)
-![armhf: yes](https://img.shields.io/badge/armhf-yes-green.svg)
-![armv7: yes](https://img.shields.io/badge/armv7-yes-green.svg)
-![i386: yes](https://img.shields.io/badge/i386-yes-green.svg)
-
-**Features:**
-- Printer announcement on the local network using zeroconf/avahi
-- Customizable cupsd.conf through CUPS-webinterface
-- Option to reset cupsd.conf to regain access (in case of misconfiguration)
-
-**Restrictions:**
+### Restrictions
 - Can announce but not discover printers using mDNS
 - No preinstalled drivers (PPD-file needed)
 - No Ingress (yet?)
 
-## Installation
 
-- Click the button below to open the add-on in your Home Assistant instance.
+# Help
+### Installation
+1. [![SHOW ADD-ON ON MY HOME ASSISTANT](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_cups&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
+2. Click OK on the pop-up to add my repo to Home Assistant
+3. Click install
 
-[![SHOW ADD-ON ON MY HOME ASSISTANT](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_cups&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
-  
-## Usage
+### Configuration
+- **Access the CUPS-webinterface** by navigating to `https://[HOSTNAME]:631` and edit the configurations as needed.
+- **Reset the configuration if necessary** by checking the appropriate box on the add-on configuration-page.
 
-Open `https://[HOSTNAME]:631` to access the CUPS-webinterface, edit the configuration-file as needed.
-
-## Support
-
-- [Discuss the addon here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions)
-
-- [Report a bug or request a feature here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues)
+### More infos
+- [Repo add-on-page](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons)

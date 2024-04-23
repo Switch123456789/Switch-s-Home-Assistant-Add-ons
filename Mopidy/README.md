@@ -1,56 +1,52 @@
 # Home Assistant Community Add-on: Mopidy+
 
-Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunch of useful extensions, Snapcast & Icecast. Extensions can be configured in the add-on configuration.
+### Features
+- Enables music-playback through [Mopidy](https://mopidy.com/)
+- Includes many useful extensions, Snapcast & Icecast
+- All important settings are available on add-on configuration-page.
 
-![aarch64: yes](https://img.shields.io/badge/aarch64-yes-green.svg)
-![amd64: yes](https://img.shields.io/badge/amd64-yes-green.svg)
-![armhf: yes](https://img.shields.io/badge/armhf-yes-green.svg)
-![armv7: yes](https://img.shields.io/badge/armv7-yes-green.svg)
-![i386: yes](https://img.shields.io/badge/i386-yes-green.svg)
-
-**Playback-options:**
+### Playback-options
 - [Local audio-device](https://github.com/home-assistant/plugin-audio)
 - [fifo](https://man7.org/linux/man-pages/man7/fifo.7.html)
 - [Snapcast](https://github.com/badaix/snapcast)
 - [Icecast](https://github.com/xiph/Icecast-Server)
 
-**Backend-extensions:**
+### Backend-extensions
 - [Mopidy](https://github.com/mopidy/mopidy) (Files, Playlists & Streams)
 - [Mopidy-Local](https://github.com/mopidy/mopidy-local)
 - [Mopidy-Mixcloud](https://github.com/unusualcomputers/unusualcomputers/tree/master/code/mopidy/mopidymixcloud)
 - [Mopidy-Soundcloud](https://github.com/mopidy/mopidy-soundcloud)
 - [Mopidy-Youtube](https://github.com/natumbri/mopidy-youtube)
 
-**Interface-extensions:**
+### Interface-extensions
 - [Mopidy-Iris](https://github.com/jaedb/iris)
 - [Mopidy-Mobile](https://github.com/tkem/mopidy-mobile)
 - [Mopidy-Yap](https://github.com/dyj216/mopidy-yap)
 
-## Installation
+# Help
+### Installation
 
-- Click the button below to open the add-on in your Home Assistant instance.
+1. [![SHOW ADD-ON ON MY HOME ASSISTANT](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
+2. Click OK on the pop-up to add my repo to Home Assistant
+3. Click install
 
-  [![SHOW ADD-ON ON MY HOME ASSISTANT](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
+### Configuration
 
-## Usage
+- **Enable at least one audio-output** on the add-on configuration-page.
 
-- **Enable at least one audio-output** in the add-ons configuration-page.
+- **Enable the extensions you want to use**. Only Mopidy-Stream & Mopidy-http are on by default and those can't be disabled.
 
-- **All extensions are disabled by default**, with the exception of Mopidy-Stream & Mopidy-http. Make sure to enable those you wish to use.
+- **Access extension-specific configurations** by clicking on`Show unused optional configuration options`.
 
-- To access **extension-specific configurations** click on `Show unused optional configuration options` in the add-on-configuration.
+- **Control mopidy** by installing [bushvin's Home Assistant Integration] and/or enabling an interface-extension and navigate to `http://[HOSTNAME]:8066`. 
 
-- To **control mopidy** enable an interface and open `http://[HOSTNAME]:8066` and/or install [bushvin's Home Assistant Integration].
+- **Use [Snapcast]** through [iris]' Snapcast-implementation or navigate to `http://[HOSTNAME]:1780`. On Android use the [Snapcast-app] and enter your hostname in the settings.
 
-- **[Snapcast]** can be used through [iris]' Snapcast-implementation or at `http://[HOSTNAME]:1780`.  On Android install the [Snapcast-app] and enter your hostname in the settings.
+- **Use [Icecast]** by navigating to `http://[HOSTNAME]:8000/mopidy` with a webbrowser or a media-player like [vlc](https://github.com/videolan/vlc).
 
-- **[Icecast]** can be accessed through `http://[HOSTNAME]:8000/mopidy`.
+### More infos
 
-## Support
-
-- **[Discuss the add-on here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/discussions)**
-
-- **[Report a bug or request a feature here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues)**
+- [Repo add-on-page](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons)
 
 [bushvin's Home Assistant Integration]: https://github.com/bushvin/hass-integrations
 [iris]: https://github.com/jaedb/Iris
