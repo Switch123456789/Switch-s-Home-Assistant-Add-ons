@@ -1,5 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
+RUN echo "Version: 0.9.1"
 
 #UPDATE AND INSTALL PACKAGES
 RUN apk update && apk upgrade --no-cache && apk add --no-cache \

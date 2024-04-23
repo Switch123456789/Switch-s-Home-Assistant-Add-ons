@@ -2,7 +2,11 @@
 
 Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunch of useful extensions, Snapcast & Icecast. Extensions can be configured in the add-on configuration.
 
-![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
+![aarch64: yes](https://img.shields.io/badge/aarch64-yes-green.svg)
+![amd64: yes](https://img.shields.io/badge/amd64-yes-green.svg)
+![armhf: yes](https://img.shields.io/badge/armhf-yes-green.svg)
+![armv7: yes](https://img.shields.io/badge/armv7-yes-green.svg)
+![i386: yes](https://img.shields.io/badge/i386-yes-green.svg)
 
 **Playback-options:**
 - [Local audio-device](https://github.com/home-assistant/plugin-audio)
@@ -26,7 +30,7 @@ Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunc
 
 - Click the button below to open the add-on in your Home Assistant instance.
 
-  [![badge]](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
+  [![SHOW ADD-ON ON MY HOME ASSISTANT](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=e34e2f70_mopidy&repository_url=https%3A%2F%2Fgithub.com%2FSwitch123456789%2FSwitch-s-Home-Assistant-Add-ons)
 
 ## Usage
 
@@ -53,10 +57,3 @@ Enables music-playback through [Mopidy](https://mopidy.com/), it includes a bunc
 [Snapcast]: https://github.com/badaix/snapcast
 [Snapcast-app]: https://play.google.com/store/apps/details?id=de.badaix.snapcast
 [Icecast]: https://icecast.org/
-
-[badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
