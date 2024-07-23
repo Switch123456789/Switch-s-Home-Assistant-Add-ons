@@ -1,8 +1,8 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base-python
 FROM ${BUILD_FROM}
-RUN echo "Version: 0.8.14"
+RUN echo "Version: 0.8.20"
 
-#UPDATE AND INSTALL PACKAGES
+#INSTALL PACKAGES (APK)
 RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     alsa-plugins-pulse \
     gst-plugins-base \
@@ -18,9 +18,9 @@ RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     py3-pip \
     yt-dlp
 
-#INSTALL EDGE PACKAGES
 #RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
 
+#INSTALL PACKAGES (PIP3)
 RUN pip3 install --break-system-packages --no-cache-dir --upgrade \
     mopidy-iris \
     mopidy-local \
@@ -31,6 +31,11 @@ RUN pip3 install --break-system-packages --no-cache-dir --upgrade \
 #   mopidy-mixcloud
 #   mopidy-youtube
 
+#INSTALL PACKAGE (SNAPWEB)
+RUN wget "https://github.com/badaix/snapweb/releases/download/v0.7.0/snapweb.zip" -P "/tmp" && \
+    rm -R -f "/usr/share/snapserver/snapweb" && \
+    unzip "/tmp/snapweb.zip" -d "/usr/share/snapserver/snapweb"
+
 #WORKAROUND: MOPIDY-MIXCLOUD (Fork: Switch123456789.
 RUN wget "https://github.com/Switch123456789/unusualcomputers/archive/refs/heads/master.zip" -P "/tmp" && \
     unzip "/tmp/master.zip" "unusualcomputers-master/code/mopidy/mopidymixcloud/*" -d "/tmp" && \
@@ -39,17 +44,17 @@ RUN wget "https://github.com/Switch123456789/unusualcomputers/archive/refs/heads
 
 #WORKAROUND: MOPIDY-YOUTUBE (Branch: develop)
 RUN wget "https://github.com/natumbri/mopidy-youtube/archive/refs/heads/develop.zip" -P "/tmp" && \
-    unzip "/tmp/develop.zip" -d "/tmp" && \
+    unzip "/tmp/develop.zip" -d "/tmp/"* && \
     cd "/tmp/mopidy-youtube-develop" && \
     pip3 install --break-system-packages .
 
 #PREPARE FILES
 RUN echo "mopidy ALL=NOPASSWD: /usr/lib/python3.11/site-packages/mopidy_iris/system.sh" >> "/etc/sudoers" && \
-    sed -i 's/level = INFO/level = WARNING/' /etc/mopidy/logging.conf && \
-    rm "/etc/snapserver.conf" "/etc/icecast.xml" "/etc/mopidy/mopidy.conf" && \
-    mv "/etc/mopidy" "/etc/mopidy.default"
+    sed -i "s/level = INFO/level = WARNING/" "/etc/mopidy/logging.conf" && \
+    mv "/etc/mopidy" "/etc/mopidy.default" && \
+    rm -R -f "/tmp/"* "/etc/snapserver.conf" "/etc/icecast.xml" "/etc/mopidy/mopidy.conf" 
 
 #PREPARE SCRIPT
 COPY run.sh /
-RUN chmod a+x /run.sh && rm -R /tmp/*
+RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]

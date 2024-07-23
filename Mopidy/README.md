@@ -32,24 +32,24 @@
 
 ### Configuration
 
-- **Enable at least one audio-output** on the add-on configuration-page.
+- **Enable at least one output-method and all extensions you wish to use!**  
+Only Mopidy-Stream & Mopidy-http are enabled by default and those can't be disabled.
 
-- **Enable the extensions you want to use**. Only Mopidy-Stream & Mopidy-http are on by default and those can't be disabled.
+- **Navigate to the addon-settings to enable/disable extensions & output-methods.**  
+Click on `Show unused optional configuration options` to show extension-specific settings that are set to default.
 
-- **Access extension-specific configurations** by clicking on`Show unused optional configuration options`.
+- **Install [bushvin's Home Assistant Integration](https://github.com/bushvin/hass-integrations) if you want to control mopidy with Home Assistant**  
+You can install the integration using [HACS](https://hacs.xyz/), more instructions can be found on [the integration's github-page](https://github.com/bushvin/hass-integrations).
 
-- **Control mopidy** by installing [bushvin's Home Assistant Integration] and/or enabling an interface-extension and navigating to `http://[HOSTNAME]:6680`. 
+- **Navigate to `http://[HOSTNAME]:6680` to use [Mopidy](https://github.com/mopidy/mopidy)**  
+Make sure your prefered webinterface-extensions are enabled. You can enable one or multiple at the same time.
 
-- **Use [Snapcast]** through [iris]' Snapcast-implementation or by navigating to `http://[HOSTNAME]:1780`. On Android use the [Snapcast-app] and enter your hostname in the settings.
+- **Navigate to `http://[HOSTNAME]:1780` to use [Snapcast](https://github.com/badaix/snapcast)**  
+You can also use [iris' webinterface](https://github.com/jaedb/Iris) to playback snapcast streams. On Android install the [Snapcast-app](https://play.google.com/store/apps/details?id=de.badaix.snapcast) and enter your hostname in the settings.
 
-- **Use [Icecast]** by navigating to `http://[HOSTNAME]:8000/mopidy` with a webbrowser or a media-player like [vlc](https://github.com/videolan/vlc).
+- **Navigate to `http://[HOSTNAME]:8000/mopidy` to use [Icecast](https://icecast.org)**  
+Some Browser's media-player can be janky with live-streaming, so I suggest to open the URL in [vlc](https://github.com/videolan/vlc) or whatever software you prefer.
 
 ### More infos
 
 - [Repo add-on-page](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons)
-
-[bushvin's Home Assistant Integration]: https://github.com/bushvin/hass-integrations
-[iris]: https://github.com/jaedb/Iris
-[Snapcast]: https://github.com/badaix/snapcast
-[Snapcast-app]: https://play.google.com/store/apps/details?id=de.badaix.snapcast
-[Icecast]: https://icecast.org/

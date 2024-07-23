@@ -1,7 +1,7 @@
 slug: "mopidy"
-name: "Mopidy+"
+name: "Mopidy"
 description: "Mopidy + extensions + Snapcast + Icecast"
-version: "0.8.16"
+version: "0.8.20"
 init: false
 audio: true
 realtime: true
@@ -21,9 +21,9 @@ map:
 startup: services
 
 ports:
-  1780/tcp: 1780
-  1705/tcp: 1705
   1704/tcp: 1704
+  1705/tcp: 1705
+  1780/tcp: 1780
   6680/tcp: 6680
   8000/tcp: 8000
 

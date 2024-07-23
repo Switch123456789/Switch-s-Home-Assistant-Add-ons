@@ -115,7 +115,7 @@
         } > "/etc/snapserver.conf"
     #START
         snapserver -c "/etc/snapserver.conf" &
-        if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h "127.0.0.1" --hostID "Home Assistant" & fi
+        if [ ${output_local} = true ]; then snapclient --logfilter *:fatal -h "127.0.0.1" --hostID "HomeAssistant" & fi
     elif [ "${output_local}" = true ]; then mopidy_output+=" t. ! queue ! autoaudiosink"; fi
 #################################################################################
 
