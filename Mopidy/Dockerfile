@@ -44,7 +44,7 @@ RUN wget "https://github.com/Switch123456789/unusualcomputers/archive/refs/heads
 
 #WORKAROUND: MOPIDY-YOUTUBE (Branch: develop)
 RUN wget "https://github.com/natumbri/mopidy-youtube/archive/refs/heads/develop.zip" -P "/tmp" && \
-    unzip "/tmp/develop.zip" -d "/tmp/"* && \
+    unzip "/tmp/develop.zip" -d "/tmp" && \
     cd "/tmp/mopidy-youtube-develop" && \
     pip3 install --break-system-packages .
 
