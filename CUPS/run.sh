@@ -2,7 +2,7 @@
 ulimit -n 1048576 #fix
 
 # PREPARATIONS ##################################################################
-    bashio::log.info "PREPARING MOPIDY ..."
+    bashio::log.info "PREPARING CUPS ..."
         if [ ! -d "/data/cups" ]; then
             bashio::log.notice "NO CONFIGURATION FOUND, USING DEFAULTS!"
             cp -p -r "/etc/cups.default" "/data/cups"
