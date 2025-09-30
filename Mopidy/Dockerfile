@@ -1,6 +1,6 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base-python
 FROM ${BUILD_FROM}
-RUN echo "Version: 0.8.20"
+RUN echo "Version: 0.8.21"
 
 #INSTALL PACKAGES (APK)
 RUN apk update && apk upgrade --no-cache && apk add --no-cache \
@@ -18,7 +18,7 @@ RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     py3-pip \
     yt-dlp
 
-#RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community \
+#RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
 
 #INSTALL PACKAGES (PIP3)
 RUN pip3 install --break-system-packages --no-cache-dir --upgrade \
@@ -54,7 +54,8 @@ RUN echo "mopidy ALL=NOPASSWD: /usr/lib/python3.11/site-packages/mopidy_iris/sys
     mv "/etc/mopidy" "/etc/mopidy.default" && \
     rm -R -f "/tmp/"* "/etc/snapserver.conf" "/etc/icecast.xml" "/etc/mopidy/mopidy.conf" 
 
-#PREPARE SCRIPT
+#START SCRIPT
 COPY run.sh /
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]
+#CMD [ "/config/run.sh" ]

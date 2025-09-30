@@ -1,4 +1,0 @@
-configuration:
-  on_startup:
-    name: Start-Aktion
-    description: Falls du dich aus der Weboberfläche ausgesperrt hast, wähle "Reset configuration" um alle Berechtigungen wiederherzustellen. Führ das Addon einmal aus und warte bis es anhält, wähle dannach wieder "Start CUPS" aus.

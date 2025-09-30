@@ -1,7 +1,7 @@
 slug: "cups"
 name: "CUPS"
 description: "Enables printer sharing across LAN"
-version: "0.9.1"
+version: "0.9.10"
 init: false
 host_network: true
 usb: true
@@ -14,13 +14,10 @@ arch:
   - i386
 
 map:
-  - share:rw
+  - addon_config:rw
 
 ports:
   631/tcp: 631
   631/udp: 631
 
 startup: services
-
-schema:
-  on_startup: list(Start CUPS|Reset CUPS|Reset configuration)?
