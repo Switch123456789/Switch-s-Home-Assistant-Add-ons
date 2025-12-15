@@ -1,4 +1,5 @@
 # Home Assistant Community Add-on: CUPS
+![alt text](logo.png)
 ### Features
 - Hosts a [CUPS](https://www.cups.org/) Server
 - Enables printer sharing to the local network
