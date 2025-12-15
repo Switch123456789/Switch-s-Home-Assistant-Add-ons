@@ -1,6 +1,7 @@
 # Home Assistant Community Add-on: Snapclient (Snapcast)
 
-This addon allows snapcast-playback on audio interfaces, that are connected to the host-system
+- This addon allows snapcast-playback on audio interfaces, that are connected to Home Assistants host-system.
+- Has configuration-options for URL, client-id & latency-offset.
 
 # Help
 ### Installation
@@ -11,8 +12,9 @@ This addon allows snapcast-playback on audio interfaces, that are connected to t
 
 ### Configuration
 
-- **Navigate to the addon configuration-page for extra settings**  
-If you use the Music Assistant addon, the default settings work fine.
+- Navigate to the addon configuration-page for extra settings
+- The default URL is set to the local Snapserver (e.g. [Music Assistant](https://github.com/music-assistant/server)-, [Mopidy](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons?tab=readme-ov-file)- or [Snapserver](https://github.com/Art-Ev/addon-snapserver)-addons).
+
 
 ### More infos
 

@@ -1,7 +1,7 @@
 slug: "snapclient"
 name: "Snapclient"
 description: "Snapcast client for local playback"
-version: "0.5"
+version: "0.10"
 init: false
 audio: true
 realtime: true
@@ -20,6 +20,7 @@ map:
 startup: services
 
 schema:
-  url: str?
-  name: str?
-  latency: str?
+  url: url?
+  id: str?
+  latency: int?
+  loglevel: list(error|warning|notice|info|debug)?
