@@ -1,7 +1,7 @@
 slug: "mopidy"
 name: "Mopidy"
 description: "Mopidy + extensions + Snapcast + Icecast"
-version: "0.8.22"
+version: "0.9"
 init: false
 audio: true
 realtime: true

@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
-RUN echo "Version: 0.9.11"
+RUN echo "Version: 0.10"
 
 #UPDATE AND INSTALL PACKAGES
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
