@@ -7,8 +7,10 @@
 ![i386: yes](https://img.shields.io/badge/i386-yes-green.svg)
 
 ## Add-ons
-- ### [Mopidy+](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/blob/main/Mopidy)
+- ### [Snapclient (Snapcast)](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/blob/main/Snapclient)
 - ### [CUPS](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/blob/main/CUPS)
+- ### [Mopidy+](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/blob/main/Mopidy)
+
 
 ## Support
 - ### [Report a bug or request a feature here](https://github.com/Switch123456789/Switch-s-Home-Assistant-Add-ons/issues)

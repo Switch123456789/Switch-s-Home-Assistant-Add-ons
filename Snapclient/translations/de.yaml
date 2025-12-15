@@ -1,0 +1,7 @@
+configuration:
+  url:
+    name: "Snapserver URL (standard: tcp://127.0.0.1:1704)"
+  name:
+    name: "Snapclient Name (standard: HomeAssistant)"
+  latency:
+    name: "Snapclient Latenz-Verschiebung (standard: 0)"

@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Mopidy+
+# [DEPRICATED] Home Assistant Community Add-on: Mopidy+
 
 ### Features
 - Enables music-playback through [Mopidy](https://mopidy.com/)

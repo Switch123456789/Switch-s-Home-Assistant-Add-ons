@@ -1,0 +1,25 @@
+slug: "snapclient"
+name: "Snapclient"
+description: "Snapcast client for local playback"
+version: "0.5"
+init: false
+audio: true
+realtime: true
+host_network: true
+
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+
+map:
+  - addon_config:rw
+
+startup: services
+
+schema:
+  url: str?
+  name: str?
+  latency: str?
