@@ -9,5 +9,6 @@ cv url tcp://127.0.0.1:1704
 cv id HomeAssistant
 cv latency 0
 cv loglevel notice
-bashio::log.notice "Starting Snapclient playback from (${url}) ..."
+bashio::log.info "Starting Snapclient playback from (${url}) ..."
 snapclient "${url}" --hostID "${id}" --latency "${latency}" --logfilter=*:${loglevel}
+bashio::log.info "Shutting down ..."
