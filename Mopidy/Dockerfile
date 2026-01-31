@@ -18,8 +18,6 @@ RUN apk update && apk upgrade --no-cache && apk add --no-cache \
     py3-pip \
     yt-dlp
 
-#RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community
-
 #INSTALL PACKAGES (PIP3)
 RUN pip3 install --break-system-packages --no-cache-dir --upgrade \
     mopidy-iris \

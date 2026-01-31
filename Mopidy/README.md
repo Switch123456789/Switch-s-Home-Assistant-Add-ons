@@ -1,5 +1,5 @@
 # [DEPRICATED] Home Assistant Community Add-on: Mopidy+
-![alt text](logo.png)
+![](logo.png)
 ### Features
 - Enables music-playback through [Mopidy](https://mopidy.com/)
 - Includes many useful extensions, Snapcast & Icecast
